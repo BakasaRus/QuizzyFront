@@ -2,23 +2,20 @@
     <section class="section">
         <div class="container">
             <h1 class="title">
-                Hello World
+                Foo
             </h1>
             <p class="subtitle">
                 My first website with <strong>Bulma</strong>!
             </p>
-            <router-link to="/foo">Go to Foo</router-link>
+            <router-link to="/">Go to Home</router-link>
         </div>
     </section>
 </template>
 
 <script>
-export default {
-    name: 'HelloWorld',
-    props: {
-        msg: String
+    export default {
+        name: "Foo"
     }
-}
 </script>
 
 <style scoped>
