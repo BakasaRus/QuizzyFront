@@ -1,10 +1,10 @@
-import HelloWorld from "@/components/HelloWorld";
-import Foo from "@/components/Foo";
+import Home from "@/pages/Home";
+import Foo from "@/pages/Foo";
 
 const routes = [
     {
         path: '/',
-        component: HelloWorld
+        component: Home
     },
     {
         path: '/foo',

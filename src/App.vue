@@ -2,6 +2,11 @@
     <div id="app">
         <header-nav/>
         <router-view/>
+        <footer class="footer has-background-grey-lighter has-margin-top-20">
+            <div class="content has-text-centered">
+                <p>Немножко тестов от <a href="https://vk.com/bakasa" target="_blank">@bakasa</a>.</p>
+            </div>
+        </footer>
     </div>
 </template>
 
