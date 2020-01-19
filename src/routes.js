@@ -1,14 +1,16 @@
 import Home from "@/pages/Home";
-import Foo from "@/pages/Foo";
+import TestInfo from "@/pages/TestInfo";
 
 const routes = [
     {
         path: '/',
+        name: 'home',
         component: Home
     },
     {
-        path: '/foo',
-        component: Foo
+        path: '/test/:id',
+        name: 'test-info',
+        component: TestInfo
     }
 ];
 

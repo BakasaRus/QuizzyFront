@@ -23,7 +23,7 @@
                 </div>
             </div>
         </section>
-        <section class="has-margin-top-20">
+        <section class="section">
             <div class="container">
                 <div class="columns">
                     <div v-for="test in tests" :key="test.id" class="column is-4">
@@ -45,6 +45,7 @@ export default {
             {
                 id: 1,
                 title: 'Контроллеры в Laravel',
+                description: 'Полное описание теста',
                 author: {
                     id: 1,
                     full_name: 'Николай Андреев'
@@ -55,6 +56,7 @@ export default {
             {
                 id: 2,
                 title: 'Вычисляемые свойства во Vue.js',
+                description: 'Полное описание теста',
                 author: {
                     id: 1,
                     full_name: 'Николай Андреев'

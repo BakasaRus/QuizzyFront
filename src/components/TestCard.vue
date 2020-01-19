@@ -3,40 +3,37 @@
         <div class="card-content">
             <div class="media">
                 <div class="media-left">
-                    <figure class="image is-128x128">
+                    <figure class="image is-96x96">
                         <img :src="test.image" :alt="test.title">
                     </figure>
                 </div>
                 <div class="media-content">
                     <div class="content">
-                        <p class="title is-4">{{ test.title }}</p>
-                        <p class="subtitle is-6">Автор: {{ test.author.full_name }}</p>
+                        <p class="title is-4">
+                            {{ test.title }}
+                            <small class="has-text-grey-light">
+                                #{{ test.id }}
+                            </small>
+                        </p>
+                        <p class="subtitle is-6">{{ test.description }}</p>
                         <p>{{ test.difficulty | readableDifficulty }}</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="card-footer">
-            <router-link to="/" class="card-footer-item">Подробнее</router-link>
+            <router-link :to="{ name: 'test-info', params: { id: test.id } }" class="card-footer-item">Подробнее</router-link>
         </div>
     </div>
 </template>
 
 <script>
+import TestFilters from "@/mixins/TestFilters";
+
 export default {
     name: "CourseCard",
-    props: ['test'],
-    filters: {
-        readableDifficulty(value) {
-            switch (value) {
-                case 1: return 'Низкая сложность';
-                case 2: return 'Средняя сложность';
-                case 3: return 'Высокая сложность';
-                case 4: return 'Адская сложность';
-                default: return 'Непонятная сложность';
-            }
-        }
-    }
+    mixins: [TestFilters],
+    props: ['test']
 }
 </script>
 
