@@ -4,6 +4,7 @@ import Attempt from "@/pages/Attempt";
 import Registration from "@/pages/Registration";
 import SignIn from "@/pages/SignIn";
 import TestAdd from "@/pages/TestAdd";
+import TestStats from "@/pages/TestStats";
 
 const routes = [
     {
@@ -15,6 +16,11 @@ const routes = [
         path: '/test/new',
         name: 'test-add',
         component: TestAdd
+    },
+    {
+        path: '/test/:id/stats',
+        name: 'test-stats',
+        component: TestStats
     },
     {
         path: '/test/:id',

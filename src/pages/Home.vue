@@ -37,9 +37,10 @@
 
 <script>
 import TestCard from "@/components/TestCard";
+
 export default {
     name: 'HelloWorld',
-    components: {TestCard},
+    components: { TestCard },
     data: () => ({
         tests: [
             {

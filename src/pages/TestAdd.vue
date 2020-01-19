@@ -52,12 +52,6 @@
                                 <b-input v-model="question.title"/>
                             </b-field>
                             <b-field horizontal
-                                     label="Баллы за вопрос">
-                                <b-numberinput v-model="question.points"
-                                               min="0"
-                                               type="is-light"/>
-                            </b-field>
-                            <b-field horizontal
                                      label="Варианты ответа">
                                 <b-button @click="question.answers.push({ key: '', value: '' })">Добавить вариант</b-button>
                             </b-field>
@@ -128,8 +122,7 @@ export default {
                         value: 'Ответ 2'
                     },
                 ],
-                correct_answer: 0,
-                points: 0
+                correct_answer: 0
             });
         }
     }

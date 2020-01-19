@@ -22,7 +22,14 @@
             </div>
         </div>
         <div class="card-footer">
-            <router-link :to="{ name: 'test-info', params: { id: test.id } }" class="card-footer-item">Подробнее</router-link>
+            <router-link :to="{ name: 'test-info', params: { id: test.id } }"
+                         class="card-footer-item">
+                Подробнее
+            </router-link>
+            <router-link :to="{ name: 'test-stats', params: { id: test.id } }"
+                         class="card-footer-item">
+                Общая статистика
+            </router-link>
         </div>
     </div>
 </template>

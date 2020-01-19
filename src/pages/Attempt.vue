@@ -59,7 +59,6 @@
                         <div class="tile is-child box">
                             <p class="title is-5 is-bold">
                                 {{ i + 1 }}. {{ question.title }}
-                                <small class="has-text-grey">{{ question.points | pluralPoints }}</small>
                             </p>
                             <b-field :key="key"
                                      v-for="(choice, key) in question.answers">
@@ -113,8 +112,7 @@ export default {
                         2: '<code>Controllers</code>',
                     },
                     correct_answer: 1,
-                    answer: 1,
-                    points: 1
+                    answer: 1
                 },
 
                 {
@@ -127,8 +125,7 @@ export default {
                         3: '<code>php artisan create controller</code>',
                     },
                     correct_answer: 0,
-                    answer: 2,
-                    points: 2
+                    answer: 2
                 }
             ]
         }
