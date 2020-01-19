@@ -1,19 +1,15 @@
 <template>
-    <section class="hero is-primary is-fullheight-with-navbar">
+    <section class="hero is-info is-fullheight-with-navbar">
         <div class="hero-body">
             <div class="container">
                 <div class="columns is-centered">
                     <div class="column is-4-desktop">
                         <div class="box">
                             <p class="title is-4 has-text-black has-text-centered">
-                                Регистрация
+                                Вход в систему
                             </p>
 
                             <form>
-                                <b-field label="Имя">
-                                    <b-input v-model="name"/>
-                                </b-field>
-
                                 <b-field label="Email">
                                     <b-input type="email"
                                              v-model="email"/>
@@ -26,24 +22,10 @@
                                     </b-input>
                                 </b-field>
 
-                                <b-field label="Подтвердите пароль">
-                                    <b-input type="password"
-                                             v-model="confirmation"
-                                             password-reveal>
-                                    </b-input>
-                                </b-field>
-
-                                <b-field>
-                                    <b-checkbox v-model="agreed">
-                                        Я соглашаюсь с правилами сервиса
-                                    </b-checkbox>
-                                </b-field>
-
-                                <b-button :disabled="!agreed"
-                                          type="is-primary"
+                                <b-button type="is-info"
                                           size="is-medium"
                                           expanded>
-                                    <strong>Зарегистрироваться</strong>
+                                    <strong>Войти</strong>
                                 </b-button>
                             </form>
                         </div>
@@ -56,13 +38,10 @@
 
 <script>
 export default {
-    name: "Registration",
+    name: "SignIn",
     data: () => ({
-        name: '',
         email: '',
-        password: '',
-        confirmation: '',
-        agreed: false
+        password: ''
     })
 }
 </script>

@@ -27,9 +27,11 @@
                                   type="is-primary">
                             <strong>Зарегистрироваться</strong>
                         </b-button>
-                        <a class="button is-light">
+                        <b-button tag="router-link"
+                                  :to="{ name: 'sign-in' }"
+                                  type="is-light">
                             Войти
-                        </a>
+                        </b-button>
                     </div>
                 </b-navbar-item>
             </template>

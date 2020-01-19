@@ -2,6 +2,7 @@ import Home from "@/pages/Home";
 import TestInfo from "@/pages/TestInfo";
 import Attempt from "@/pages/Attempt";
 import Registration from "@/pages/Registration";
+import SignIn from "@/pages/SignIn";
 
 const routes = [
     {
@@ -23,6 +24,11 @@ const routes = [
         path: '/register',
         name: 'register',
         component: Registration
+    },
+    {
+        path: '/signin',
+        name: 'sign-in',
+        component: SignIn
     }
 ];
 
