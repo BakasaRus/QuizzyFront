@@ -53,7 +53,7 @@
                         </b-table-column>
 
                         <b-table-column>
-                            <b-button type="is-primary" size="is-small">Просмотреть</b-button>
+                            <b-button tag="router-link" :to="{ name: 'attempt', params: { id: props.row.id } }" type="is-primary" size="is-small">Просмотреть</b-button>
                         </b-table-column>
                     </template>
                 </b-table>
