@@ -22,9 +22,11 @@
             <template slot="end">
                 <b-navbar-item tag="div">
                     <div class="buttons">
-                        <a class="button is-primary">
+                        <b-button tag="router-link"
+                                  :to="{ name: 'register' }"
+                                  type="is-primary">
                             <strong>Зарегистрироваться</strong>
-                        </a>
+                        </b-button>
                         <a class="button is-light">
                             Войти
                         </a>
