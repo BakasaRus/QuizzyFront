@@ -11,16 +11,13 @@
                 <b-navbar-item tag="router-link" :to="{ name: 'home' }">
                     На главную
                 </b-navbar-item>
-                <b-navbar-item tag="router-link" :to="{ name: 'home' }">
-                    Мои тесты
-                </b-navbar-item>
                 <b-navbar-item tag="router-link" :to="{ name: 'test-add' }">
                     Добавить тест
                 </b-navbar-item>
             </template>
 
             <template slot="end" v-if="authenticated">
-                <b-navbar-item>
+                <b-navbar-item tag="span">
                     {{ username }}
                 </b-navbar-item>
                 <b-navbar-item tag="div">
