@@ -23,25 +23,6 @@
                             <b-field horizontal label="Описание">
                                 <b-input v-model="description" type="textarea"/>
                             </b-field>
-                            <b-field horizontal label="Количество вопросов в попытке">
-                                <b-numberinput v-model="attempt_questions" min="1" type="is-light"/>
-                            </b-field>
-                            <b-field class="file" label="Иконка" horizontal>
-                                <b-upload v-model="image">
-                                    <b-button icon-left="upload">Загрузить</b-button>
-                                </b-upload>
-                                <span class="file-name" v-if="image">
-                                    {{ image.name }}
-                                </span>
-                            </b-field>
-                            <b-field horizontal label="Сложность">
-                                <b-rate v-model="difficulty"
-                                        show-text
-                                        :max="3"
-                                        icon-pack="fas"
-                                        :texts="['Низкая', 'Средняя', 'Высокая']">
-                                </b-rate>
-                            </b-field>
                         </div>
                     </div>
                     <div class="tile is-parent" v-for="(question, i) in questions" :key="i">
@@ -50,6 +31,12 @@
                             <b-field horizontal
                                      label="Текст вопроса">
                                 <b-input v-model="question.title"/>
+                            </b-field>
+                            <b-field horizontal
+                                     label="Баллы за вопрос">
+                                <b-numberinput v-model="question.points"
+                                               min="0"
+                                               type="is-light"/>
                             </b-field>
                             <b-field horizontal
                                      label="Варианты ответа">
@@ -79,12 +66,14 @@
                     <div class="level-left"></div>
                     <div class="level-right">
                         <div class="level-item">
-                            <b-button type="is-primary" @click="addQuestion">
+                            <b-button type="is-primary"
+                                      @click="addQuestion">
                                 <strong>Добавить вопрос</strong>
                             </b-button>
                         </div>
                         <div class="level-item">
-                            <b-button type="is-success">
+                            <b-button type="is-success"
+                                      @click="save">
                                 <strong>Сохранить</strong>
                             </b-button>
                         </div>
@@ -101,9 +90,6 @@ export default {
     data: () => ({
         title: '',
         description: '',
-        attempt_questions: 0,
-        image: null,
-        difficulty: 1,
         questions: [
 
         ]
@@ -122,8 +108,18 @@ export default {
                         value: 'Ответ 2'
                     },
                 ],
-                correct_answer: 0
+                correct_answer: '1',
+                points: 0
             });
+        },
+        save() {
+            const test = {
+                title: this.title,
+                description: this.description,
+                questions: this.questions
+            };
+            this.axios.post('/api/tests', test)
+                .then(() => this.$router.push({ name: 'home' }));
         }
     }
 }
