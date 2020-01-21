@@ -10,9 +10,9 @@
             <p class="subtitle is-6">{{ test.description }}</p>
         </div>
         <div class="card-footer">
-            <router-link :to="{ name: 'test-info', params: { id: test.id } }"
+            <router-link :to="{ name: 'attempt', params: { id: test.id } }"
                          class="card-footer-item">
-                Подробнее
+                Пройти
             </router-link>
             <router-link :to="{ name: 'test-stats', params: { id: test.id } }"
                          class="card-footer-item">
