@@ -25,11 +25,14 @@
         </section>
         <section class="section">
             <div class="container">
-                <div class="columns">
+                <div class="columns" v-if="tests.length > 0">
                     <div v-for="test in tests" :key="test.id" class="column is-4">
                         <test-card :test="test"/>
                     </div>
                 </div>
+                <p class="title is-4 has-text-centered" v-else>
+                    Грузим список тестов...
+                </p>
             </div>
         </section>
     </div>
@@ -42,31 +45,12 @@ export default {
     name: 'HelloWorld',
     components: { TestCard },
     data: () => ({
-        tests: [
-            {
-                id: 1,
-                title: 'Контроллеры в Laravel',
-                description: 'Полное описание теста',
-                author: {
-                    id: 1,
-                    full_name: 'Николай Андреев'
-                },
-                image: 'https://laravel.com/img/logomark.min.svg',
-                difficulty: 3
-            },
-            {
-                id: 2,
-                title: 'Вычисляемые свойства во Vue.js',
-                description: 'Полное описание теста',
-                author: {
-                    id: 1,
-                    full_name: 'Николай Андреев'
-                },
-                image: 'https://vuejs.org/images/logo.png',
-                difficulty: 2
-            },
-        ]
-    })
+        tests: []
+    }),
+    created() {
+        this.axios.get('/api/tests')
+            .then(response => this.tests = response.data);
+    }
 }
 </script>
 
