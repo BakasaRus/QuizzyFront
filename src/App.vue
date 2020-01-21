@@ -10,10 +10,15 @@
 
 <script>
 import HeaderNav from "@/components/HeaderNav";
+import { setters } from "@/store";
 
 export default {
     name: 'app',
-    components: { HeaderNav }
+    components: { HeaderNav },
+    created() {
+        this.axios.get('/api/user')
+            .then(response => setters.setUser(response.data));
+    }
 }
 </script>
 

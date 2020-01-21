@@ -19,7 +19,18 @@
                 </b-navbar-item>
             </template>
 
-            <template slot="end">
+            <template slot="end" v-if="authenticated">
+                <b-navbar-item>
+                    {{ username }}
+                </b-navbar-item>
+                <b-navbar-item tag="div">
+                    <b-button type="is-light" @click="logout">
+                        Выйти
+                    </b-button>
+                </b-navbar-item>
+            </template>
+
+            <template slot="end" v-else>
                 <b-navbar-item tag="div">
                     <div class="buttons">
                         <b-button tag="router-link"
@@ -40,9 +51,25 @@
 </template>
 
 <script>
-    export default {
-        name: "HeaderNav"
+import { setters, getters } from "@/store";
+
+export default {
+    name: "HeaderNav",
+    methods: {
+        logout() {
+            this.axios.post('/logout')
+                .then(() => setters.clearUser());
+        }
+    },
+    computed: {
+        authenticated() {
+            return getters.isLoggedIn();
+        },
+        username() {
+            return getters.name();
+        }
     }
+}
 </script>
 
 <style scoped>

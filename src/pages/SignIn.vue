@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import { setters } from "@/store";
+
 export default {
     name: "SignIn",
     data: () => ({
@@ -53,7 +55,7 @@ export default {
             this.axios.get('/airlock/csrf-cookie')
                 .then(() => this.axios.post('/login', credentials)
                         // eslint-disable-next-line no-console
-                        .then(response => window.user = response.data)
+                        .then(response => setters.setUser(response.data))
                 );
         }
     }
