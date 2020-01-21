@@ -21,7 +21,7 @@
 
                     <div class="level-right">
                         <b-button type="is-primary"
-                                  @click="alert()">
+                                  @click="save">
                             <strong>Завершить</strong>
                         </b-button>
                     </div>
@@ -62,7 +62,14 @@ export default {
             .then(response => this.test = response.data);
     },
     methods: {
-
+        save() {
+            const answers = this.test.questions.map((value => ({
+                id: value.id,
+                answer: value.answer
+            })));
+            this.axios.post(`/api/tests/${ this.$route.params.id }/attempt`, { answers })
+                .then(() => this.$router.push({ name: 'home' }));
+        }
     },
     filters: {
         pluralPoints(value) {
