@@ -3,6 +3,7 @@ import App from './App.vue';
 import VueRouter from 'vue-router';
 import routes from "@/routes";
 import moment from 'moment';
+import axios from 'axios';
 import '@/assets/css/app.css';
 
 import Buefy from 'buefy';
@@ -30,6 +31,11 @@ Vue.config.productionTip = false;
 
 moment.locale('ru');
 Vue.prototype.moment = moment;
+
+axios.defaults.withCredentials = true;
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+axios.defaults.baseURL = 'http://localhost:8888';
+Vue.prototype.axios = axios;
 
 const router = new VueRouter({
     routes,

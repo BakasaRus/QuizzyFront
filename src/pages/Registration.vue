@@ -42,7 +42,8 @@
                                 <b-button :disabled="!agreed"
                                           type="is-primary"
                                           size="is-medium"
-                                          expanded>
+                                          expanded
+                                          @click="register">
                                     <strong>Зарегистрироваться</strong>
                                 </b-button>
                             </form>
@@ -63,7 +64,22 @@ export default {
         password: '',
         confirmation: '',
         agreed: false
-    })
+    }),
+    methods: {
+        register() {
+            const credentials = {
+                name: this.name,
+                email: this.email,
+                password: this.password,
+                password_confirmation: this.confirmation
+            };
+
+            this.axios.get('/airlock/csrf-cookie')
+            .then(() => this.axios.post('/register', credentials)
+                // eslint-disable-next-line no-console
+                .then(response => window.user = response.data));
+        }
+    }
 }
 </script>
 

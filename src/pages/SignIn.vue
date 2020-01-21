@@ -24,7 +24,8 @@
 
                                 <b-button type="is-info"
                                           size="is-medium"
-                                          expanded>
+                                          expanded
+                                          @click="login">
                                     <strong>Войти</strong>
                                 </b-button>
                             </form>
@@ -42,7 +43,20 @@ export default {
     data: () => ({
         email: '',
         password: ''
-    })
+    }),
+    methods: {
+        login() {
+            const credentials = {
+                email: this.email,
+                password: this.password
+            };
+            this.axios.get('/airlock/csrf-cookie')
+                .then(() => this.axios.post('/login', credentials)
+                        // eslint-disable-next-line no-console
+                        .then(response => window.user = response.data)
+                );
+        }
+    }
 }
 </script>
 
