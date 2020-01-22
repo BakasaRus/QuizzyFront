@@ -9,7 +9,7 @@
             </p>
             <p class="subtitle is-6">{{ test.description }}</p>
             <p class="subtitle is-6" v-if="test.info !== null">
-                {{ test.info.score | pluralPoints }}
+                Результат: {{ test.info.score | pluralPoints }}
             </p>
             <p class="subtitle is-6" v-else>
                 Тест не пройден

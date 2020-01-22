@@ -5,6 +5,7 @@ import SignIn from "@/pages/SignIn";
 import TestAdd from "@/pages/TestAdd";
 import TestStats from "@/pages/TestStats";
 import Tests from "@/pages/Tests";
+import TestInfo from "@/pages/TestInfo";
 
 const routes = [
     {
@@ -31,6 +32,11 @@ const routes = [
         path: '/test/:id',
         name: 'attempt',
         component: Attempt
+    },
+    {
+        path: '/test/:id/info',
+        name: 'protocol',
+        component: TestInfo
     },
     {
         path: '/register',
