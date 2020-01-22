@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <b-navbar spaced>
+        <b-navbar>
             <template slot="brand">
                 <b-navbar-item tag="router-link" :to="{ path: '/' }">
                     <img src="https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png"
@@ -11,7 +11,14 @@
                 <b-navbar-item tag="router-link" :to="{ name: 'home' }">
                     На главную
                 </b-navbar-item>
-                <b-navbar-item tag="router-link" :to="{ name: 'test-add' }">
+                <b-navbar-item tag="router-link"
+                               :to="{ name: 'tests' }"
+                               v-if="authenticated">
+                    Тесты
+                </b-navbar-item>
+                <b-navbar-item tag="router-link"
+                               :to="{ name: 'test-add' }"
+                               v-if="authenticated">
                     Добавить тест
                 </b-navbar-item>
             </template>
